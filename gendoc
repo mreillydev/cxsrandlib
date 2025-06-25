@@ -12,5 +12,5 @@ cp $Outdir/man/man3/cxsrandlib.3 .
 
 GithubDocs="docs"
 rm -rf $GithubDocs
-mkdir -p $GithubDocs
-cp -r $Outdir/html $GithubDocs
+cp -r $Outdir/html/ $GithubDocs
+git add $GithubDocs
