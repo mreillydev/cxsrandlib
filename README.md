@@ -7,5 +7,8 @@ This software is tested on 64 bit Debian and FreeBSD.
 # API Documentation
 [Doxygen header documentation](https://mreillydev.github.io/cxsrandlib/cxsrandlib_8h.html)
 
+# Testing
+A test suite is provided in the test/ directory.
+
 # License
 Licensed under the BSD-3 License.
