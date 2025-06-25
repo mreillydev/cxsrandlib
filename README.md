@@ -8,4 +8,4 @@ This software is tested on 64 bit Debian and FreeBSD.
 [Doxygen header documentation](https://mreillydev.github.io/cxsrandlib/cxsrandlib_8h.html)
 
 # License
-Licensed under the BSD-3 License
+Licensed under the BSD-3 License.
