@@ -1,0 +1,135 @@
+.TH "cxsrandlib" 3 "Tue Jun 24 2025" "cxsrandlib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cxsrandlib \- This library implements a seeded xorshift pseudorandom number generator\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBcxsrandlib_u32\fP (uint32_t *state)"
+.br
+.RI "Return a seeded pseudorandom unsigned 32 bit integer\&. "
+.ti -1c
+.RI "int32_t \fBcxsrandlib_i32_range\fP (int32_t lo, int32_t bound, uint32_t xorbits, uint32_t *state)"
+.br
+.RI "Return a seeded pseudorandom signed 32 bit integer in the range [lo, bound)\&. "
+.ti -1c
+.RI "uint32_t \fBcxsrandlib_u32_range\fP (uint32_t lo, uint32_t bound, uint32_t xorbits, uint32_t *state)"
+.br
+.RI "Return a seeded pseudorandom unsigned 32 bit integer in the range [lo, bound)\&. "
+.ti -1c
+.RI "double \fBcxsrandlib_double\fP (uint32_t *state)"
+.br
+.RI "Return a seeded pseudorandom double in the range [0, 1]\&. "
+.ti -1c
+.RI "void \fBcxsrandlib_normal2\fP (double mean, double stddev, double out[2], uint32_t *state)"
+.br
+.RI "Output two seeded pseudorandom doubles according to the normal distribution specified by mean and stddev using the Marsaglia polar method\&. "
+.ti -1c
+.RI "double \fBcxsrandlib_normal\fP (double mean, double stddev, uint32_t *state)"
+.br
+.RI "Return a seeded pseudorandom double according to the normal distribution specified by mean and stddev using the Marsaglia polar method\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+This library implements a seeded xorshift pseudorandom number generator\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "uint32_t cxsrandlib_u32 (uint32_t * state)"
+
+.PP
+Return a seeded pseudorandom unsigned 32 bit integer\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstate\fP Seeded state (must be initialized non-zero) 
+.RE
+.PP
+
+.SS "int32_t cxsrandlib_i32_range (int32_t lo, int32_t bound, uint32_t xorbits, uint32_t * state)"
+
+.PP
+Return a seeded pseudorandom signed 32 bit integer in the range [lo, bound)\&. Results returned are uniform except with regard to modulo bias\&. If bound is less than or equal to lo, lo is returned and state is unmodified\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIlo\fP Inclusive lower bound 
+.br
+\fIbound\fP Exclusive upper bound 
+.br
+\fIxorbits\fP Transform result before bounds adjustment is applied 
+.br
+\fIstate\fP Seeded state (must be initialized non-zero) 
+.RE
+.PP
+
+.SS "uint32_t cxsrandlib_u32_range (uint32_t lo, uint32_t bound, uint32_t xorbits, uint32_t * state)"
+
+.PP
+Return a seeded pseudorandom unsigned 32 bit integer in the range [lo, bound)\&. Results returned are uniform except with regard to modulo bias\&. If bound is less than or equal to lo, lo is returned and state is unmodified\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIlo\fP Inclusive lower bound 
+.br
+\fIbound\fP Exclusive upper bound 
+.br
+\fIxorbits\fP Transform result before bounds adjustment is applied 
+.br
+\fIstate\fP Seeded state (must be initialized non-zero) 
+.RE
+.PP
+
+.SS "double cxsrandlib_double (uint32_t * state)"
+
+.PP
+Return a seeded pseudorandom double in the range [0, 1]\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstate\fP Seeded state (must be initialized non-zero) 
+.RE
+.PP
+
+.SS "void cxsrandlib_normal2 (double mean, double stddev, double out[2], uint32_t * state)"
+
+.PP
+Output two seeded pseudorandom doubles according to the normal distribution specified by mean and stddev using the Marsaglia polar method\&. This function has a cycle limited fallback to prevent theoretical infinite recursion\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fImean\fP Mean of the normal distribution 
+.br
+\fIstddev\fP Standard deviation of the normal distribution 
+.br
+\fIout\fP Array in which to output two doubles 
+.br
+\fIstate\fP Seeded state (must be initialized non-zero) 
+.RE
+.PP
+
+.SS "double cxsrandlib_normal (double mean, double stddev, uint32_t * state)"
+
+.PP
+Return a seeded pseudorandom double according to the normal distribution specified by mean and stddev using the Marsaglia polar method\&. This function operates by calling cxsrandlib_normal2 and discarding one of the outputs\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fImean\fP Mean of the normal distribution 
+.br
+\fIstddev\fP Standard deviation of the normal distribution 
+.br
+\fIstate\fP Seeded state (must be initialized non-zero) 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for cxsrandlib from the source code\&.
