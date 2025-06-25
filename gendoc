@@ -1,7 +1,16 @@
 #!/bin/sh
 set -e
-Outdir=docs
+
+Outdir=doxygen-output
 rm -rf $Outdir
+
 doxygen
+
 mv -i $Outdir/man/man3/cxsrandlib.h.3 $Outdir/man/man3/cxsrandlib.3
 sed -i -e "s/src\/cxsrandlib\.h/cxsrandlib/g" $Outdir/man/man3/cxsrandlib.3
+cp $Outdir/man/man3/cxsrandlib.3 .
+
+GithubDocs="docs"
+rm -rf $GithubDocs
+mkdir -p $GithubDocs
+cp -r $Outdir/html $GithubDocs
