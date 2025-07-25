@@ -24,6 +24,8 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+CC ?= clang
+
 all:
 	rm -f cxsrandtest
-	clang -lm -o cxsrandtest -I../src cxsrandtest.c ../src/cxsrandlib.c
+	$(CC) -o cxsrandtest -I../src cxsrandtest.c ../src/cxsrandlib.c -lm
